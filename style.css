@@ -1,0 +1,1613 @@
+﻿/* General Variables (Define your gold color here) */
+:root {
+    --gold-color: #f1d577; /* A classic gold */
+    --font-body: 'Arial', sans-serif;
+    /* ================================================== */
+    /* ✅ FONT VARIABLES - CHANGE THESE TO CHANGE THE LOOK */
+    /* ================================================== */
+    --font-heading: 'HeadingKhmer', serif;
+    --font-display: 'DisplayKhmer', serif;
+    --font-body-text: 'BodyKhmer', serif;
+    --font-name: 'English', serif; /* For Parent/Guest/Couple names */
+    --font-button: 'ButtonKhmer', serif; 
+    /* ================================================== */
+}
+
+/* Base Reset and Global Styles */
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    overflow-x: hidden;
+    /* ✅ CRITICAL: Hide global scrollbar until Page 2 is active */
+    overflow-y: hidden;
+}
+
+
+/* Background Video Styling */
+#global-bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+
+    /* Apply Blur Filter */
+    filter: blur(5px);
+    transform: scale(1.05);
+}
+
+
+/* ###################################################### */
+/* PAGE 1: ENTRANCE STYLING */
+/* ###################################################### */
+#entrance-page {
+    /* Styles for full-screen centering */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    /* ✅ FIX: Ensure the entrance page is on top for clickability */
+    z-index: 100;
+}
+
+/* 🌟 Entrance Page FADE-IN ANIMATION 🌟 */
+
+
+
+@keyframes entranceFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px); 
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+}
+
+
+#entrance-page.fade-in {
+    opacity: 0; 
+    /* Delay the start of the whole page fade slightly */
+    animation: entranceFadeIn 2s ease-out 0.2s forwards; 
+}
+
+
+/* 🌟 Entrance Page Overrides (No background inside the border, visible) 🌟 */
+.entrance-override {
+    padding: 1% 4% !important; 
+    width: 330px !important; 
+    height: 92%  !important;
+    max-width: 490px !important;
+    background-image: url('images/border.png');
+    margin-top: 30px !important;
+    margin-bottom: 40px !important;
+    /* 1. CRITICAL CHANGE: Remove background color */
+    background-color: transparent !important; 
+    /* 2. CRITICAL CHANGE: Make the entrance box visible on load */
+    opacity: 1 !important;
+    animation: none; 
+}
+.entrance-photo {
+    /* Adjust size as needed for your photo */
+    width: 168px; 
+    height: 145px; 
+    border-radius: auto; /* Makes the photo circular */
+    margin-top: 50px; /* Space between photo and the main title */
+    display: block; /* Ensure it behaves like a block element */
+    margin-left: auto; /* Center the image */
+    margin-right: auto; /* Center the image */
+}
+
+.top {
+    /* Adjust size as needed for your photo */
+    width: 190px; 
+    height: 75px; 
+    border-radius: auto; /* Makes the photo circular */
+    margin-top: 40px; /* Space between photo and the main title */
+    display: block; /* Ensure it behaves like a block element */
+    margin-left: auto; /* Center the image */
+    margin-right: auto; /* Center the image */
+}
+/* Force dark text for readability on the transparent box/light background */
+.entrance-override .សិរីមង្គលអាពាហ៍ពិពាហ៍{
+    font-family: var(--font-heading);
+    font-size: 1.3em;
+    margin-top: 20px;
+    text-shadow: #181717;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    color: #D4AF37;
+}
+.សូមគោរពអញ្ជើញ{
+    font-family: var(--font-heading);
+    font-size: 1.15em;
+    margin-top: 10px;
+    text-shadow: #181717;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    color: #D4AF37;
+}
+.entrance-override 
+.Guest-name{
+    font-family: var(--font-name);
+    font-size: 1.8em;
+    font-weight: bold;
+    text-shadow: #181717;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    color: #D4AF37;
+
+}
+.button-text{
+    font-family: var(--font-button);
+    font-size: 1.2em;
+    font-weight: bold;
+    text-shadow: #181717;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+
+}
+.entrance-override .monogram-placeholder {
+    color: #333 !important;
+    text-shadow: none !important;
+}
+
+
+
+.guest-name {
+    font-size: 1.15em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 40px; /* Space above the button */
+}
+
+.decorative-button {
+    /* ... (Existing styles are mostly unchanged) ... */
+    width: 330px; 
+    height: 95px; 
+
+    background-color: transparent;
+    background-image: url('images/button.png');
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center; 
+    border: none;
+    padding: 30; 
+    cursor: pointer;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px   !important;
+    margin-left: -2px;
+    
+    /* 🌟 CRITICAL ADDITION: Apply the animation 🌟 */
+    animation: bounceVertical 2s infinite ease-in-out alternate !important;
+    
+    /* Smooth transition for the hover effect (keep this for the scale effect) */
+    transition: transform 0.2s ease-out !important;
+}
+
+/* Style for the button background image */
+.button-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure the image fits within the button dimensions */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Style for the text placed over the image */
+.button-text {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Fine-tune center alignment */
+    
+    /* Text styling */
+    font-family: var(--font-button);
+    font-size: 0.9em; 
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    line-height: 1;
+    z-index: 21; /* Ensure text is above the image */
+}
+
+
+@media (max-width: 600px) {
+    /* ... (other existing mobile styles) ... */
+
+    .decorative-button {
+        width: 85%; /* Make button fill most of the screen width */
+        height: 100px; /* Reduce button height */
+        margin-top: 20px;
+    }
+    .button-text {
+        font-size: 1.1em; /* Smaller font for mobile */
+    }
+}
+
+/* Style the text inside the button */
+.khmer-text-muol-b {
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: bold;
+    text-shadow: #181717;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    
+    
+    /* Adjust text position to sit centrally inside the decorative part of the image */
+    transform: translateY(-5px); 
+}
+@keyframes bounceVertical {
+    0%, 100%{
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* ###################################################### */
+/* SHARED & PAGE 2 STYLING */
+/* ###################################################### */
+
+/* Ensure text in the invitation box has better contrast on Page 2 (dark background) */
+#invitation-box-section 
+.សិរីមង្គលអាពាហ៍ពិពាហ៍2 {
+    font-family: var(--font-heading);
+    font-size: 1,5em;
+    margin-top: -5px;
+    margin-bottom: -20px;
+    color: rgb(255, 222, 88);
+}
+
+/* --- Transition Overlay (UNCHANGED) --- */
+#transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* ✅ FIX: Z-index lower than entrance page */
+    z-index: 90; 
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#transition-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- PAGE 2: MAIN CONTENT STYLING --- */
+#page-2-main {
+    display: none;
+    position: relative;
+    /* ✅ FIX: Z-index lowest for content */
+    z-index: 10; 
+    min-height: 100vh;
+    padding: 50px 0;
+    min-height: 100vh; /* ⬅️ CRITICAL: Ensure the main content area covers the full screen height */
+    padding: 0; /* Removing padding here prevents vertical misalignment */
+}
+
+
+.section {
+    padding: 50px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+
+
+@keyframes mainFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+    
+
+
+/* --- INVITATION BOX STYLES (BASE FOR BOTH PAGES: Border, Size, Padding) --- */
+.invitation-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Aligns to top */
+    min-height: auto; /* Allow height to expand */
+    margin-top: -35px;
+}
+.invitation-box {
+    /* 1. Dimensions (SHARED BASE) */
+    width: 33%;
+    max-width: 180px; 
+    height: 870px;
+    text-align: center;
+    position: center; 
+    background-size: 100% 100%; 
+    margin-top: auto; 
+    background-repeat: no-repeat;
+    padding: 10px 90px; 
+    opacity: 0;
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+/* Class applied by JS to make the border and box appear on Page 2 */
+.invitation-box.border-fade-in {
+    opacity: 1;
+    animation: mainFadeIn 1.5s ease-out forwards;
+}
+
+
+/* Class to hide text elements initially (REQUIRED for sequential fade) */
+.fade-in-item {
+    opacity: 0;
+    /* Define the starting position: slightly down and slightly smaller */
+    transform: translateY(18px) scale(0.98); 
+    /* Set transition properties for when the JS adds the 'is-visible' class */
+    transition: opacity 0.2s ease-out, transform 0.5s ease-out;
+}
+
+/* Final state class applied by JS when the element IS in view */
+.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    /* Set the actual animation duration for a smooth transition */
+    transition: opacity 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                transform 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+
+.title {
+    font-family: var(--font-body);
+    font-size: 0.8em;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Parent/Couple Name Layouts (Splitting Left/Right) */
+.parents-row, .couple-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px 0;
+}
+
+.parent-info, .couple-info {
+    width: 45%;
+    text-align: center;
+}
+
+.title {
+    font-family: var(--font-body-text);
+    font-size: 0.8em;
+    font-weight: 400;
+    
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.parent-name {
+    font-family: var(--font-heading);
+    font-size: 0.85em;
+    margin-top: -2px;
+    color: rgb(255, 222, 88);
+    font-weight: 700;
+}
+
+.មានកិត្តិយសសូមគោរពអញ្ជើញ {
+    font-family: var(--font-heading);
+    font-size: 0.96em;
+    margin-top: -8px   !important;
+    color: rgb(255, 222, 88);
+    margin: 30px 0 20px;
+}
+
+/* Long text formatting */
+.long-text {
+    font-family: var(--font-body-text);
+    font-size: 0.85em;
+    /* ✅ FIX: Reduced line-height for text density */
+    line-height: 2.05; 
+    letter-spacing: 0.01em;
+    color: #ffffff;
+    margin: 0 auto 40px;
+    margin-top: -8px !important;
+    max-width: 600px;
+}
+
+/* Couple Names & Logo */
+.title-row {
+    display: flex;
+    justify-content: space-between; /* Spreads the two blocks apart */
+    align-items: flex-start;
+    width: 90%; /* Defines the width inside the invitation box */
+    max-width: 600px;
+    margin: 20px auto; /* Centers the row and adds vertical space */
+}
+
+/* Individual Block for the Title/Name combo */
+.title-block {
+    width: 48%; /* Each block takes nearly half the width */
+    padding: 10px 0;
+}
+
+/* Specific Alignment for the Content INSIDE the Blocks */
+/* In this setup, "Left-Center" and "Right-Center" usually means:
+    1. The block sits on the left/right edge. (Handled by Flexbox: space-between)
+    2. The text inside the block is centered. (Handled by text-align: center) */
+.title-block.left-center, 
+.title-block.right-center {
+    text-align: center; /* Centers the text within the 48% block */
+}
+
+/* --- EXISTING NAME STYLES (Adjusted for consistency) --- */
+
+.Bride-Name{
+    font-family: var(--font-heading);
+    font-size: 0.9em; /* Increase size slightly for impact */
+    line-height: 0.9px;
+    margin-right: 35px;
+    color: rgb(255, 222, 88);
+    margin-top: 20px; 
+    margin-bottom: 0;
+    /* text-align: center is inherited from .title-block, so no need to add here */
+}
+
+.Groom-Name {
+    font-family: var(--font-heading);
+    font-size: 0.9em; /* Increase size slightly for impact */
+    line-height: 0.9px;
+    margin-left: 30px;
+    color: rgb(255, 222, 88);
+    margin-top: 20px; 
+    margin-bottom: 0;
+    /* text-align: center is inherited from .title-block, so no need to add here */
+}
+
+.កូនប្រុសនាម {
+    font-family: var(--font-body-text);
+    font-size: 0.85em; /* Adjusted size */
+    /* ✅ FIX: Reduced line-height significantly */
+    line-height: 1.5;
+    margin-right: 40px !important;
+    color: #ffffff;
+    margin: 0; /* Remove excess margins */
+    margin-top: -5px;
+    /* text-align: center is inherited from .title-block, so no need to add here */
+}
+.កូនស្រីនាម{
+    font-family: var(--font-body-text);
+    font-size: 0.85em; /* Adjusted size */
+    /* ✅ FIX: Reduced line-height significantly */
+    line-height: 1.5;
+    margin-left: 28px !important;
+    color: #ffffff;
+    margin: 0; /* Remove excess margins */
+    margin-top: -5px;
+    /* text-align: center is inherited from .title-block, so no need to add here */
+}
+
+
+.couple-info {
+    width: 45%; /* Allocates space for the name columns */
+    /* REMOVE text-align: center; from here if present */
+}
+
+/* Explicitly align the left column text */
+.couple-info.left-aligned {
+    text-align: left;
+}
+
+/* Explicitly align the right column text */
+.couple-info.right-aligned {
+    text-align: right;
+}
+
+/* Ensure the central container is tiny and centered */
+.logo-center {
+    width: 10%; /* Small container for the logo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* New CSS class for the Monogram Image */
+.couple-logo-image {
+    /* Adjust these values to control the size of the monogram */
+    width: 120px; 
+    height: 120px; 
+    margin-top: -38px  !important;
+    object-fit: contain; /* Ensures the image scales down without being cropped */
+    filter: drop-shadow(0 0 5px rgba(51, 50, 47, 0.5)); /* Optional: Adds a subtle gold glow/shadow */
+}
+
+
+.ដែលប្រព្រឹត្តទៅនៅ {
+    font-family: var(--font-body-text);
+    font-size: 0.95em;
+    margin-top: 10px;
+    color: rgb(255, 255, 255);
+}
+
+.date {
+    font-family: var(--font-body-text);
+    font-size: 1.15em;
+    /* ✅ FIX: Reduced line-height for date density */
+    line-height: 1.3;
+    color: rgb(255, 222, 88);
+    margin-top: -8px !important;
+    margin: 0 auto 15px;
+    max-width: 600px;
+}
+.location {
+    font-family: var(--font-body-text);
+    font-size: 0.85em;
+    color: #ffffff;
+    margin: 0 auto 10px;
+    max-width: 600px;
+    margin-top: -10px;
+}
+.time {
+    font-family: var(--font-body-text);
+    font-size: 0.85em;
+    /* ✅ FIX: Reduced line-height for time density */
+    margin-top: 15px    !important;
+    color: rgb(255, 222, 88);
+    margin: 0 auto 10px;
+    margin-top: -3px   !important;
+    max-width: 600px;
+}
+
+
+/* Footer Styling */
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: -50px;
+    background-color: #DDD;
+    color: #555;
+}
+
+/* --- LOCATION MAP SECTION STYLES --- */
+.location-map-section {
+    margin-top: 50px;
+    padding-top: 30px;
+}
+
+.location-title {
+    font-family: var(--font-body-text);
+    font-size: 1.15em;
+    letter-spacing: 1px; ;
+    color: rgb(255, 222, 88); /* Gold color */
+    margin: 10px 0 5px;
+    margin-top: -85px   !important;
+}
+
+.scan-text {
+    font-family: var(--font-body-text);
+    font-size: 0.85em;
+    color: #ffffff;
+    margin-top: 1px   !important;
+    margin-bottom: 15px;
+}
+
+.qr-code-image {
+    width: 120px; /* Adjust size as needed */
+    height: 120px;
+    object-fit: contain;
+    margin: 0 auto 25px; /* Centers the image and adds space below */
+    margin-top: -3px   !important;
+    display: block;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* 🌟 NEW MAP LINK BUTTON STYLES 🌟 */
+.map-link-button {
+    /* Base Button Styling (Like decorative-button, but static) */
+    position: relative;
+    width: 350px; /* Same width as the entrance button */
+    height: 95px; /* Same height as the entrance button */
+    
+    background-color: transparent;
+    /* The background image is now handled by the <img> tag inside */
+    
+    border: none;
+    padding: 0; 
+    cursor: pointer;
+    text-decoration: none; /* Remove underline from the link */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin: 20px auto 0; /* Space below QR code */
+    
+    /* Ensure it's responsive */
+    max-width: 90%;
+    
+    /* Smooth transition for the hover effect */
+    transition: transform 0.2s ease-out;
+}
+
+.map-link-button:hover {
+    transform: scale(1.05); /* Slight scale on hover for feedback */
+}
+
+/* Style for the button background image inside the link */
+.map-button-image-inner {
+    width: 80%;
+    height: 80%;
+    width: 353px;
+    height: 80px;
+    margin-top: -20px;
+    object-fit: contain; 
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Style for the text placed over the image */
+.map-button-text {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 47%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Fine-tune center alignment */
+    
+    /* Text styling */
+    font-family: var(--font-body-text);
+    font-size: 1em; /* Slightly larger for a clean look */
+    margin-top: -26px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    line-height: 1;
+    z-index: 2; /* Ensure text is above the image */
+    display: flex;
+    align-items: center;
+}
+.google-maps-logo {
+    width: 20px;
+    height: 20px;
+    margin-left: 98px !important;
+    margin-top: -61px;
+    object-fit: contain;
+    z-index: 2; /* Ensure logo is above the image */
+}
+/* END OF NEW MAP LINK BUTTON STYLES */
+
+
+/* ###################################################### */
+/* MEDIA QUERY: DESKTOP & LARGE SCREEN OPTIMIZATION */
+/* ###################################################### */
+@media (min-width: 1200px) {
+    /* Center the main container even more gracefully on large screens */
+    .invitation-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 90vh;
+        align-items: center; /* Center vertically in the large viewport */
+    }
+
+    /* Increase Max Width for the box to fill the desktop design better */
+    .invitation-box {
+        max-width: 850px; /* Wider box on desktop */
+        padding: 120px 40px; /* More internal padding for a grander look */
+    }
+    .main-invitation-box {
+        background-image: url('images/Border2.png');
+
+    }
+
+    /* Larger fonts for better impact on desktop */
+    .section-title
+    khmer-text-muol-s {
+        font-size: 3.5em; 
+        color: #ffcc00;
+    }
+
+    .couple-name {
+        font-size: 2.8em;
+    }
+
+    
+}/* ###################################################### */
+/* MEDIA QUERY: MOBILE OPTIMIZATION (MAX 600px) */
+/* ###################################################### */
+@media (max-width: 600px) {
+    /* 1. Entrance Page Font Size & Box Scaling */
+    .entrance-override .khmer-text-muol-b {
+        font-size: 1.3em;
+    }
+    .entrance-override .khmer-text-muol-s {
+        font-size: 1.1em;
+    }
+    .entrance-override .eng-text-kbal {
+        font-size: 1.5em;
+    }
+    .entrance-override {
+        padding: 50px 0 !important; 
+        max-width: 90% !important; /* Make entrance box slightly wider */
+        /* Reduce the overall height of the entrance page elements */
+        height: auto; 
+    }
+    .decorative-button {
+        width: 85%; /* Make button fill most of the screen width */
+        height: 100px; /* Reduce button height */
+        margin-top: 20px;
+    }
+    .entrance-photo, .top {
+        width: 150px;
+    }
+    
+    /* 2. Main Invitation Box (Page 2) */
+    .invitation-box {
+        padding: 50px 30px; /* Tighter padding for mobile */
+        width: 95%; /* Ensure it occupies most of the width */
+        margin-top: 20px;
+    }
+
+    /* 3. Layout Stacking (Already good, but confirm font sizes) */
+    .parents-row, .couple-row {
+        flex-direction: column;
+        gap: 15px; /* Slightly less space */
+    }
+    .parent-info, .couple-info {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Adjust main content fonts for mobile readability */
+    .section-title.large-title {
+        font-size: 2.2em;
+    }
+    .long-text {
+        font-size: 1em;
+    }
+    .couple-name {
+        font-size: 1.8em;
+    }
+    .date-location {
+        font-size: 1.1em;
+    }
+    
+    /* Mobile optimization for the new map button */
+    .map-link-button {
+        width: 85%;
+        height: 80px;
+    }
+    .map-button-text {
+        font-size: 1em;
+    }
+}
+/* ###################################################### */
+/* AGENDA TIMELINE STYLING (Left-Aligned, Boxed Content) */
+/* ###################################################### */
+
+:root {
+    /* Ensure the bright gold is defined, or use the color provided: */
+    --bright-gold-border: #f3f3f3; 
+}
+
+#agenda-section {
+    padding-top: 50px;
+    margin-top: -5% !important;
+    padding-bottom: 80px;
+    background-color: transparent;
+}
+
+.agenda-container {
+    display: flex;
+    justify-content: center;
+}
+
+.agenda-timeline-box {
+    width: 70%;
+    max-width: 400px;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.agenda-title {
+    font-family: var(--font-heading);
+    font-size: 1.3em;
+    color: var(--gold-color);
+    margin-top: 80px   !important;
+    margin-bottom: 6px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+.agenda-date {
+    font-family: var(--font-body-text);
+    font-size: 0.9em;
+    color: #ffffff;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Timeline Structure */
+.timeline-wrapper {
+    position: relative;
+    padding: 0;
+    margin: 0 auto;
+}
+
+/* Vertical Line (Fixed to the Left) */
+.timeline-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0; /* <<< CRITICAL CHANGE: Align line to the left edge */
+    width: 2px;
+    background-color: var(--bright-gold-border);
+    z-index: 0;
+}
+
+/* Individual Timeline Item */
+.timeline-item {
+    display: flex;
+    /* Items align dot left, content left */
+    justify-content: flex-start; 
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+    padding-left: 35px; /* <<< CRITICAL CHANGE: Create space for the image dot on the left */
+    padding-right: 0; /* Reset right padding */
+}
+
+/* Timeline Dot Image (Positioned on the Left Line) */
+.timeline-dot-image {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 0px; /* <<< CRITICAL CHANGE: Position left on the line */
+    transform: translate(-50%, -50%); /* Shift it half its width over the line */
+    z-index: 1;
+}
+
+
+/* Content Positioning */
+.timeline-content {
+    width: 100%;
+    text-align: left; 
+}
+
+/* Agenda Content Box (The Bordered Box) */
+.agenda-content-box {
+    border: 1.5px solid var(--bright-gold-border); 
+    background: transparent;
+    padding: 10px 15px;
+    border-radius: 21px;
+    margin-left: 20px; /* <<< CRITICAL CHANGE: Space between box and timeline line */
+    margin-right: 0; /* Reset right margin */
+}
+
+.time-label {
+    font-family: var(--font-body-text);
+    font-size: 0.9em;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+}
+
+.ceremony-title {
+    font-family: var(--font-body-text);
+    font-size: 1em;
+    color: var(--gold-color);
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Mobile Adjustments (Ensures readability on small screens) */
+@media (max-width: 600px) {
+    .agenda-timeline-box {
+        max-width: 95%;
+    }
+    .timeline-item {
+        padding-left: 25px; /* Smaller space on mobile */
+    }
+    .timeline-wrapper::before {
+        width: 1.5px;
+    }
+    .timeline-dot-image {
+        width: 15px;
+        height: 15px;
+    }
+    .agenda-content-box {
+        padding: 8px 10px;
+        margin-left: 15px;
+    }
+    .ceremony-title {
+        font-size: 1.1em;
+    }
+}
+
+
+/* ###################################################### */
+/* COUNTDOWN SECTION STYLING */
+/* ###################################################### */
+
+#countdown-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: transparent; /* Inherits BG video */
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.countdown-box {
+    position: relative;
+    width: 90%;
+    margin-top: -10% !important;
+    max-width: 500px; /* Adjust based on your preferred design width */
+    padding: 0;
+    text-align: center;
+}
+
+/* Background Image Placeholder for countdown-bg.png */
+.countdown-bg-image {
+    width: 100%;
+    border: 0.4px solid #c0b695;
+    border-radius: 25px;
+    opacity: 60%;
+    height: auto;
+    display: block;
+    /* Ensure the image stretches to fit the box and retains its aspect ratio */
+}
+
+/* Content layer over the background image (CRITICAL for positioning text) */
+.countdown-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; /* Distributes space vertically */
+    align-items: center;
+    padding: 20px 0;
+}
+
+.countdown-title {
+    font-family: var(--font-heading);
+    font-size: 1.4em;
+    color: var(--gold-color);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    margin: 10px 0;
+}
+
+/* Timer Grid (Days, Hours, Minutes, Seconds) */
+.timer-grid {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 10px auto;
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Ensure equal spacing by giving each unit width */
+    width: 25%; 
+}
+
+.number-gold {
+    font-family: var(--font-name); 
+    font-size: 2.8em;
+    font-weight: bold;
+    color: var(--gold-color);
+    line-height: 1;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.label-khmer {
+    font-family: var(--font-body-text);
+    font-size: 0.9em;
+    color: #ffffff;
+    margin-top: 5px;
+}
+
+/* Footer and Button (Left: Date, Right: Button) */
+.countdown-footer {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+.wedding-date-text {
+    font-family: var(--font-body-text);
+    font-size: 0.8em;
+    color: floralwhite;
+    margin-left: 18px;
+    margin-top: -20px;
+}
+
+/* Calendar Button Styling */
+.calendar-button-link {
+    height: 10px;
+    width: 40%;
+    text-decoration: none;
+    padding: 0px 30px;
+    margin-bottom: 0%;
+    margin-right: -30px;
+    margin-top: -21%;
+}
+.calendar-button-text{
+    font-family: var(--font-body-text);
+    font-size: 0.8em;
+    color: var(--gold-color);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    margin: 5px 0;
+}
+
+.calendar-button-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Styling to match the gold border look from the image */
+    border: 1.5px solid var(--gold-color);
+    border-radius: 25px;
+    padding: 8px 15px;
+    background-color: rgba(0, 0, 0, 0.3); 
+    transition: background-color 0.3s;
+}
+
+.calendar-icon {
+    width: 25px;
+    height: 17px;
+    margin-left: 8px;
+}
+
+/* Mobile Adjustments for Countdown */
+@media (max-width: 600px) {
+    .number-gold {
+        font-size: 2em;
+    }
+    .timer-grid {
+        width: 95%;
+    }
+    .countdown-footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    .wedding-date-text,
+    .calendar-button-link {
+        margin: 5px 0;
+    }
+    
+}
+/* ----------------------------------------------------
+   LOVE STORY SECTION (FOLLOWING VIDEO STYLE)
+------------------------------------------------------*/
+
+#love-story-section {
+    text-align: center;
+    color: #fff;
+    margin-top: 40px;
+}
+
+.love-story-title {
+    font-family: var(--font-heading);
+    font-size: 2.5em;
+    color: #fff;
+    margin-bottom: 25px;
+}
+
+.love-story-title span {
+    color: var(--gold-color);
+    font-family: var(--font-display);
+}
+
+.love-story-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 10px;
+}
+
+.love-story-photo {
+    width: 220px;
+    margin-bottom: -75px !important;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.25);
+    object-fit: cover;
+}
+
+.love-story-quote {
+    font-family: var(--font-name);
+    font-size: 1.5em;
+    margin-top: 120px !important;
+    line-height: 1.25;
+    
+    text-align: left;
+    max-width: 300px;
+    font-weight: 300;
+    color: #ffffff;
+}
+/* ==========================================
+   WEDDING PHOTO SECTIONS
+========================================== */
+
+.wedding-section {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.wedding-card {
+    position: relative;
+    width: 90%;
+    height: 600px;
+    max-width: 420px;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+}
+
+.wedding-photo {
+    width: 100%;
+    height: 100%  !important;
+    height: auto;
+    display: block;
+}
+
+/* Dark overlay */
+.wedding-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.05),
+        rgba(0,0,0,0.55)
+    );
+    pointer-events: none;
+}
+
+/* Wedding Text */
+.wedding-text {
+    position: absolute;
+    width: 100%;
+    color: #fff;
+    font-family: var(--font-body-text);
+    font-size: 1.6em;
+    padding: 20px;
+    line-height: 1.4;
+}
+
+/* position variations */
+.wedding-text.center {
+    bottom: 30%;
+    text-align: center;
+}
+
+.wedding-text.bottom-left {
+    bottom: 10%;
+    left: 20px;
+    text-align: left;
+}
+
+.wedding-text.top-left {
+    top: 10%;
+    left: 20px;
+    text-align: left;
+}
+
+.wedding-text.bottom-center {
+    bottom: 12%;
+    text-align: center;
+    width: 100%;
+}
+
+.credit {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.6em;
+    letter-spacing: 3px;
+    opacity: 0.9;
+}
+
+/* Swipe text */
+.swipe {
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    font-size: 0.7em;
+    color: #fff;
+    opacity: 0.8;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .wedding-text { font-size: 1.3em; }
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+    .love-story-wrapper {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .love-story-quote {
+        text-align: center;
+        font-size: 1.2em;
+    }
+
+    .love-story-photo {
+        width: 70%;
+        margin: 0 auto;
+    }
+.love-story-wrapper.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Keep symmetry with spacing */
+.love-story-wrapper.reverse .love-story-quote {
+    text-align: left;
+}
+
+/* Mobile version always stacks normally */
+@media (max-width: 600px) {
+    .love-story-wrapper.reverse {
+        flex-direction: column;
+    }
+
+    .love-story-wrapper.reverse .love-story-quote {
+        text-align: center;
+    }
+}
+}
+/* ===============================
+   WEDDING ALBUM SECTION
+================================ */
+
+#wedding-album {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.album-title {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    color: var(--gold-color);
+    font-family: var(--font-display); /* gold Khmer style */
+}
+
+.album-wrapper {
+    width: 31%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Shared Photo Style */
+.album-photo {
+    width: 100%;
+    border-radius: 18px;
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(0,0,0,0.25);
+    margin-bottom: 20px;
+}
+
+/* Two-photo row */
+.album-row {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.album-photo.medium {
+    width: 48%;
+    height: 300px;
+}
+
+.album-photo.big {
+    height: 250px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .album-photo.medium {
+        height: 170px;
+    }
+
+    .album-row {
+        gap: 12px;
+    }
+
+    .album-title {
+        font-size: 1.8em;
+    }
+}
+
+/* =====================================
+   LIGHTBOX STYLE
+===================================== */
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.88);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.lightbox-image {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(255,255,255,0.2);
+    /* Start hidden, fade in */
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease !important;
+}
+
+/* Hover zoom - desktop only */
+@media (hover: hover) and (pointer: fine) {
+    .lightbox-image {
+        transition: transform 0.35s ease, opacity 0.4s ease;
+    }
+
+    .lightbox-image:hover {
+        transform: scale(1.06);
+        cursor: zoom-in;
+    }
+}
+/* When shown */
+.lightbox-image.show {
+    opacity: 1;
+}
+
+
+.lightbox-close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 2.2em;
+    color: white;
+    cursor: pointer;
+    font-weight: 300;
+}
+
+/* Swipe animation */
+.lightbox-image.swipe-left {
+    transform: translateX(-120%);
+}
+
+.lightbox-image.swipe-right {
+    transform: translateX(120%);
+}
+/*======================================================*/
+/* --- Guestbook Section Styling (Dark/Moody Aesthetic) --- */
+/*======================================================*/
+.wish-section {
+    /* Sets the dark background container */
+    background-color: rgba(78, 78, 78, 0.205); 
+    padding: 40px 80px;
+    margin: 50px auto;
+    width: 60%;
+    max-width: 380px; 
+    border-radius: 35px; 
+     /* Deep shadow for a sophisticated look */
+    color: #fff; /* Light text for dark background */
+    height: 420px;
+    text-align: center;
+    position: center; 
+}
+
+.wish-container {
+    text-align: center;
+}
+
+.wish-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #f0e68c; /* Soft gold/khaki color for elegance */
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.wish-subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #bbb; /* Off-white subtitle */
+}
+
+.wish-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 12px;
+    max-width: 450px;
+    margin: 0 auto;
+    
+}
+
+.input-group {
+    text-align: left;
+    color: #ffffff;
+}
+
+.input-group{
+    font-family: var(--font-body-text);
+    font-size: 0.8em;
+    font-weight: 400;
+    margin-bottom: 5px;
+    color: #e9d200;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    
+
+}
+
+.wish-form input[type="text"],
+.wish-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-left: -11px;
+    /* Dark, semi-transparent input fields, mimicking the countdown box style */
+    background-color: rgba(158, 158, 158, 0.151); 
+    border-radius: 20px;
+    font-family: var(--font-body-text);
+    font-size: 1rem;
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    color: #ffffff;
+
+}
+
+/* Style the placeholder text (for "សរសេរសារ") */
+.wish-form input::placeholder,
+.wish-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5); 
+    font-style: italic;
+    
+}
+
+.wish-form textarea {
+    min-height: 150px;
+    resize: vertical;
+    color:#fff
+    
+}
+
+.wish-form input:focus,
+.wish-form textarea:focus {
+    /* Disables the default browser outline */
+    outline: none !important; 
+    /* Ensures no border is added */
+    border: none !important; 
+    /* Ensures no glow effect is added */
+    box-shadow: none !important; 
+    /* Ensures text color remains white */
+    color: #fff;
+}
+.wish-form input#guestName.personalized-name-locked {
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter background */
+    cursor: default; /* Change cursor from text-entry to default */
+    font-style: italic;
+    color: #f0e68c; /* Display name in gold color */
+}
+
+/* --- BUTTON CONTAINER STYLING (The Image Itself) --- */
+.submit-button.image-button {
+    width: 390px; 
+    height: 90px;
+    margin-top: -18px;
+    background-image: url('images/button.png'); 
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent !important; 
+    border: none;
+    cursor: pointer;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    overflow: hidden; 
+}
+
+/* --- TEXT LABEL STYLING (The Best Way to Hide Text for Accessibility) --- */
+.submit-button .button-label {
+    /* 💥 CRITICAL FIX: Use the Visually Hidden Technique 💥 */
+    position: absolute; 
+    /* Remove unnecessary styles that conflict with hiding */
+    font-family: var(--font-body-text);
+    font-size: 1rem;
+    text-shadow: #181717;
+    color: #fff;
+}
+.submit-button.image-button:hover {
+    transform: scale(1.02);
+}
+
+.submit-button {
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+/* Style for the confirmation message */
+.status-message {
+    font-family: var(--font-body-text);
+    font-size: 0.8rem;
+    text-shadow: #181717;
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    color: #f0e68c; /* Ensure success message is gold/white */
+}
+
+/* Ensure the fade-in-item styles are still present in your file: */
+.fade-in-item {
+    opacity: 0;
+    transform: translateY(20px); 
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.fade-in-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
